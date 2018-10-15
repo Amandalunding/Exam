@@ -1,0 +1,15 @@
+html {
+    overflow: hidden;
+}
+
+body
+{
+    background-color: rgba(211, 205, 198, 0.747);
+    padding: 0%;
+    margin: 0%;
+}
+
+*
+{
+    font-family: "Poppins", sans-serif; 
+}

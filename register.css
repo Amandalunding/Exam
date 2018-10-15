@@ -1,0 +1,82 @@
+html {
+    overflow: hidden;
+}
+
+.background
+{
+    position: relative;
+    display: -webkit-box;
+display: flex;
+-webkit-box-align: center;
+align-items: center;
+-webkit-box-pack: center;
+justify-content: center;
+min-height: 300px;
+color: #fff;
+text-align: center;
+-webkit-box-orient: vertical;
+-webkit-box-direction: normal;
+flex-direction: column;
+background-color: #999;
+background-position: bottom;
+background-size: cover;
+padding-left: 20px;
+padding-right: 20px;
+}
+
+body
+{
+    background-color: rgba(211, 205, 198, 0.747);
+    text-align: center;
+    padding: 0%;
+    margin: 0%;
+}
+
+*
+{
+    font-family: "Poppins", sans-serif; 
+}
+
+.headline
+{
+    font-size: 80px;
+    color: black;
+}
+
+h4
+{
+    font-size: 20px;
+}
+
+.enteru
+{
+    height:40px;
+    font-size: 16px;
+}
+
+.enterp
+{
+    height:40px;
+    font-size: 16px;
+}
+
+.repeatp
+{
+    height:40px;
+    font-size: 16px;
+}
+
+.button3
+{
+    background-color: rgb(87, 87, 87);
+    border: none;
+    color: white;
+    padding: 11px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login function</title>
+    <link rel="stylesheet" href="login1.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+</head>
+<body>
+<!-- Left part of page -->
+<div class="float-left" style="width:49%; float: left;">
+    <div style="text-align:center">
+<h1>Currency exchange</h1>
+<h4>Log in here to access more exchange rates</h4>
+
+<input type="text" placeholder="Username" class="username" name="username" id="username"/>
+<input type="password" placeholder="Password" class="password" name="password" id="password" />
+<input type="button" class="button" value="Login" name="submit" id="submit" />
+<br>
+<span id="loginResult"></span>
+<p></p>
+<h2>Not a user yet?</h2>
+<input type="button" class="button2" value="Click here to sign up" name="createaccount" id="createaccount" />
+
+<br>
+<br>
+<br>
+<br>
+
+<!--Currency converter-->
+<h5>Currency converter</h5>
+<form>
+    <form>
+<p>
+<input type="text" placeholder="Insert numbers" id="amount" value=""  oninput="uppercalculate();" style="height:40px;font-size:12pt;width:350px;">
+<br>
+<br>
+<select id="select"style="height:50px;font-size:14pt;width:150px">
+<option value="USD">USD </option>
+    <option value="EUR">EUR </option>
+    <option value="GPB">GBP </option>
+    <option value="DKK">DKK </option>
+   <option value="JPY">JPY </option>
+</select>
+                      
+    
+<select id="select1" style="height:50px;font-size:14pt;width:150px">
+    <option value="EUR">EUR </option>
+    <option value="USD">USD </option>
+    <option value="GPB">GBP </option>
+    <option value="DKK">DKK </option>
+    <option value="JPY">JPY </option>
+    </select>
+<br>
+<br>
+<input type="text" id="result" value=""  oninput="lowercalculate();" style="height:40px;font-size:12pt;width:350px; background-color:lightsteelblue">
+</p>
+</form>  
+</div>  
+</div> 
+
+
+<!-- Right part of page -->
+<div class="float-right" style="width:49%; float: right;">
+<div class="image"> <img src="https://images.unsplash.com/photo-1539525077581-4982d535faa3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=061710c00517df2c4c92fa8eca274a0b&auto=format&fit=crop&w=634&q=80">
+</div>
+</div>
+
+
+
+
+<script src="login1.js"></script>
+</body>
+</html>

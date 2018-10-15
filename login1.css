@@ -1,0 +1,75 @@
+html {
+    overflow: hidden;
+}
+
+body
+{
+    background-color: rgba(211, 205, 198, 0.747);
+    padding: 0%;
+    margin: 0%;
+}
+
+*
+{
+    font-family: "Poppins", sans-serif; 
+}
+
+h1
+{
+    font-size: 300%;
+    text-align: center;  
+}
+
+h4
+{
+    font-size: 120%;
+    text-align: center;
+}
+
+h2
+{
+    font-size: 90%;
+    display: inline-block;
+}
+
+.username
+{
+    height:40px;
+    font-size: 80%;
+}
+
+.password
+{
+    height:40px;
+    font-size: 80%;
+}
+
+.button
+{
+    background-color: rgb(87, 87, 87);
+    border: none;
+    color: white;
+    padding: 11px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.button2
+{
+    background-color: rgb(87, 87, 87);
+    border: none;
+    color: white;
+    padding: 5px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 3px 2px;
+    cursor: pointer;
+    border-radius: 10px;   
+}
