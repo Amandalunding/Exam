@@ -2,7 +2,6 @@
 //CURRENCY CONVERTER
 
 // Creating connection between HTML and Javascript
-
 function uppercalculate() {
     console.log("uppercalculate call")
     var amount = parseFloat(document.getElementById("amount").value);
@@ -60,4 +59,65 @@ function uppercalculate() {
   if(rates[select.value] && rates[select.value][select1.value])
     result.value = amount * rates[select.value][select1.value];
   }
-  //CURRENCY CONVERTER - END
+
+
+  // API collect rates 
+//first we make a class currency for the names of the currencies and the rates
+class Currency{
+    constructor(name, rate){
+        this.name = name;
+        this.rate = rate;
+    }
+}
+
+// get the most recent exchange rates via the "live" endpoint:
+newAjax("http://www.apilayer.net/api/live?access_key=9ca6ed5b9c0a228d45664d2b9c05111b");
+
+function newAjax(url){
+    var xmlhttp;
+
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function(){
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+            callbackFunc(xmlhttp.responseText);
+        }
+    }
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+}
+
+function callbackFunc(response){
+
+    var currencies = JSON.parse(response);
+    var currencies_keys = Object.keys(currencies.quotes);
+    var currencies_values = Object.values(currencies.quotes);
+
+    var currencyFrom = document.getElementById("currencyFrom");
+    var currencyTo = document.getElementById("currencyTo");
+    var html = "";
+
+//We make an array of our currencies
+    var currenciesList = [];
+
+    for(i=0; i < currencies_keys.length; i++){
+        if(i == 0){
+            var currency = currencies_keys[i].substring(0,3);
+            html += "<option value='" + currency + "'>" + currency + "</option>";                
+        }
+
+        var currency = currencies_keys[i].substring(3,6);
+        var rate = currencies_values[i];
+
+        var currencyObject = new Currency(currency, rate);
+        currenciesList.push(currencyObject);
+
+        html += "<option value='" + currency + "'>" + currency + "</option>";
+    }
+//local storage
+    localStorage.setItem("currencies", JSON.stringify(currenciesList));
+
+    currencyFrom.innerHTML = html;
+    currencyTo.innerHTML = html;
+    
+
+}

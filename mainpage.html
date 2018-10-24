@@ -14,49 +14,40 @@
     <div style="text-align:center">
 
 <!--Currency converter-->
-<h5>Currency converter</h5>
-<form>
-    <form>
 <p>
-<input type="text" placeholder="Insert numbers" id="amount" value=""  oninput="uppercalculate();" style="height:40px;font-size:12pt;width:350px;">
+    <input type="text" id="amount" value=""  style="height:50px;font-size:14pt;width:400px">
 <br>
 <br>
-<select id="select"style="height:50px;font-size:14pt;width:150px">
-<option value="USD">USD </option>
-    <option value="EUR">EUR </option>
-    <option value="GPB">GBP </option>
-    <option value="DKK">DKK </option>
-   <option value="JPY">JPY </option>
-</select>
-                      
-    
-<select id="select1" style="height:50px;font-size:14pt;width:150px">
-    <option value="EUR">EUR </option>
-    <option value="USD">USD </option>
-    <option value="GPB">GBP </option>
-    <option value="DKK">DKK </option>
-    <option value="JPY">JPY </option>
-    </select>
-<br>
-<br>
-<input type="text" id="result" value=""  oninput="lowercalculate();" style="height:40px;font-size:12pt;width:350px; background-color:lightsteelblue">
-</p>
-</form> 
 
-</div>
-</div>
+<select id="currencyFrom" name='currencies'  style="height:50px;font-size:14pt;width:150px" id="origin">
+</select>
+<select id="currencyTo" name='currencies'  style="height:50px;font-size:14pt;width:150px" id="destination">
+</select>
+<br>
+<br>
+<input type="text" id="result" value=""  style="height:50px;font-size:14pt;width:400px; background-color: darkseagreen">
+</p>
+
+<p>
+<input type="reset" value="Reset">
+</p>
+</form>     
+     
+</body>
+</html>
+
+
+
+
+
+
+
+
 
 
 <!-- Right part of page -->
 <div class="float-right" style="width:49%; float: right;">
-
-
-
-
 </div>
-
-
-
 
 <script src="mainpage.js"></script>
 </body>

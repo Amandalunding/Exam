@@ -73,3 +73,32 @@ h2
     cursor: pointer;
     border-radius: 10px;   
 }
+
+.amount
+{
+    height: 40px;
+    font-size: 12pt;
+    width: 350px;
+}
+
+.select
+{
+    height: 50px;
+    font-size:14pt;
+    width:150px
+}
+
+.select1
+{
+    height: 50px;
+    font-size:14pt;
+    width:150px
+}
+
+.result
+{
+    height: 40px;
+    font-size: 12pt;
+    width: 350px;
+    background-color:lightsteelblue;
+}

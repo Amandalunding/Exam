@@ -1,10 +1,8 @@
-// We create a user class, so we have an easy way to create users and further implement features at a later stage
+// User class created to implement features
 class User {
 
-    // The constructor for our class, which will allow us to create new objects of our class
-    constructor(firstname, lastname, username, password) {
-      this.firstname = firstname;
-      this.lastname = lastname;
+  // The constructor for our class, which will allow us to create new objects of our class
+    constructor(username, password) {
       this.username = username;
       this.password = this.hashPassword(password);
       this.lastAccess = null;
@@ -21,6 +19,7 @@ class User {
       if (rawPassword) {
         a = 0;
         /*jshint plusplus:false bitwise:false*/
+        //This is a loop that goes through all passwords and emails
         for (h = rawPassword.length - 1; h >= 0; h--) {
           o = rawPassword.charCodeAt(h);
           a = (a<<6&268435455) + o + (o<<14);
@@ -42,8 +41,9 @@ class User {
   var users = [];
   
   // Fill it up with a few users
-  users.push(new User("Henrik", "Thorn", "thorn", "qwerty"));
-  users.push(new User("Peter", "Pan", "milkway", "password"));
+  users.push(new User("Henrik", "Kode543"));
+  users.push(new User("Peter", "Pan"));
+  users.push(new User("Amanda", "Kode123"));
   
   // Bind the button to a variable for later use
   var submit = document.getElementById('submit');
@@ -90,104 +90,112 @@ class User {
       }
   
       // If username and password we have in put matches the one in our loop
-      if(user.username == inputUsername.value && user.password == hashedInputPassword) {
-  
-        // Update the lastAccess of the user-object
-        user.setLastAccess();
-  
-        // We set the resultspan with a new text and return true to get out of this function. The date will be in unixtime
-        // TODO: We wan't something better than unixtime for the user!
-        resultSpan.innerText = "Hi " + user.firstname + " " + user.lastname + ", you've successfully entered the system at: "+user.lastAccess;
-  
-        // Return true to jump out of the function, since we now have all we need.
-        return true;
+      if(user.username == inputUsername.value && user.password == hashedInputPassword) 
+      {
+      return window.location.replace("file:///Users/Amanda/Documents/CBS/Introduction%20to%20Programming/Exam/mainpage.html")
       }
+    else 
+    {
+      resultSpan.innerText = "Wrong username or password - Please try again";
     }
-  
-    // We check if the user has tried to enter a wrong username and password too many times
-    if(counter == 0){
-  
-      // Disable the two input fields and the button in order for the user to not make any trouble
-      inputUsername.disabled = true;
-      inputPassword.disabled = true;
-      submit.disabled = true;
-  
-      // Return false to stop us from doing anything further.
-      return false;
-  
-    }else {
-      // Since we did not find a match, we know that the user has typed a wrong password and username
-      resultSpan.innerText = "You've entered a username or password that does not match our stored credentials";
-  
-      // Update the counter with an attempt of logging in.
-      counter--;
-  
-      // Return false, since we do not have anything more to do
-      return false;
     }
-  };
+    }
 
+//Create an account - Link to sign-up form
 document.getElementById("createaccount").onclick = function () {
     location.href = "signup1.html";
 };
 
 
-  // Creating connection between HTML and Javascript
+function lastModified() {
+  var modiDate = new Date(document.lastModified);
+  var showAs = modiDate.getDate() + "-" + (modiDate.getMonth() + 1) + "-" + modiDate.getFullYear();
+  return showAs
+}
 
-function uppercalculate() {
-  console.log("uppercalculate call")
+function GetTime() {
+  var modiDate = new Date();
+  var Seconds
+
+  if (modiDate.getSeconds() < 10) {
+      Seconds = "0" + modiDate.getSeconds();
+  } else {
+      Seconds = modiDate.getSeconds();
+  }
+
+  var modiDate = new Date();
+  var CurTime = modiDate.getHours() + ":" + modiDate.getMinutes() + ":" + Seconds
+  return CurTime
+}
+
+document.write("Last updated on ")
+document.write(lastModified() + " @ " + GetTime());
+document.write("");
+
+
+// Creating connection between HTML and Javascript
+
+var calculate = function calculate() {
+  console.log("calculate call")
+
   var amount = parseFloat(document.getElementById("amount").value);
   var select = document.getElementById("select");
   var select1 = document.getElementById("select1");
   var result = document.getElementById("result");
 
-  // creating objects for rates 
+// creating objects for rates 
 
 var rates = {
-  USD : {
+    USD : {
       USD: 1,
       EUR: 0.88,
       DKK: 6.45,
-      GBP: 0.76,
+      GPB: 0.76,
       JPY: 112.21
-  },
-  EUR : {
-      EUR : 1,
-      USD : 1.13,
-      DKK : 7.47,
-      JPY : 129.32,
-      GBP : 0.88
-      
-      
-  },
-  GPB : { 
-      GPB : 1,
-      USD : 1.32,
-      DKK : 8.46,
-      EUR : 1.13,
-      JPY : 146.74
+      },
+    EUR : {
+          EUR : 1,
+          USD : 1.13,
+          DKK : 7.47,
+          JPY : 129.32,
+          GPB : 0.88
+          
+          
+      },
+    GPB : { 
+          GPB : 1,
+          USD : 1.32,
+          DKK : 8.46,
+          EUR : 1.13,
+          JPY : 146.74
 
-  },
+      },
 
-  DKK : {
-      DKK: 1,
-      USD : 0.16,
-      EUR : 0.13,
-      GBP : 0.12,
-      JPY : 17.32
+      DKK : {
+          DKK: 1,
+          USD : 0.16,
+          EUR : 0.13,
+          GPB : 0.12,
+          JPY : 17.32
 
-  },
-  JPY : {
-      JPY: 1,
-      USD: 0.01,
-      EUR: 0.01,
-      GBP: 0.01,
-      DKK: 0.06
+      },
+      JPY : {
+          JPY: 1,
+          USD: 0.01,
+          EUR: 0.01,
+          GPB: 0.01,
+          DKK: 0.06
+}
+// Creating an if statement in order to convert currencies 
+}
+//var countryCodes = ["JPY", "USD", "EUR", "GPB", "DKK"]
+if(rates[select.value] && rates[select.value][select1.value]) {
+
+var number = amount * rates[select.value][select1.value] 
+      result.value = number + select1.value
   }
-  
-  // Creating an if statement in order to convert currencies 
 }
 
-if(rates[select.value] && rates[select.value][select1.value])
-  result.value = amount * rates[select.value][select1.value];
-}
+document.getElementById("amount").addEventListener("keyup", calculate);
+document.getElementById("select").addEventListener("change", calculate);
+document.getElementById("select1").addEventListener("change", calculate);
